@@ -7,6 +7,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -67,13 +68,10 @@ public class LibraryController {
 
     @GetMapping("/modif/{id}")
     public String viewCV(Model m,@PathVariable Long id, User user){
-        //List<User> lListeUser = userDAO.findById(id);
-        if(id.equals(user.getId())){
-            m.addAttribute("user", user.getId());
+        Optional str = userDAO.findById(id);
+        if(str.isPresent()){
+            m.addAttribute("user",userDAO.findById(id).get());
         }
         return "modif";
     }
-
-
-
 }
