@@ -1,39 +1,207 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>CV Creator</title>
-    <meta charset="UTF-8">
-    <title>Modification</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
-<body>
+
+<script type='text/javascript'>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+<style>
+    #output_image
+    {
+        max-width:300px;
+    }
+    img{
+        max-width:180px;
+
+    }
+    .roundPhotoId {
+        overflow:hidden;
+        -webkit-border-radius:50px;
+        -moz-border-radius:50px;
+        border-radius:50px;
+        width:150px;
+        height:150px;
+    }
+
+
+</style>
+
+
+<body style="background-color: darkslategrey; color: floralwhite;">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">CV Creator</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/index">CV Creator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/index">Home </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/new">Création <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/new">Création</a>
+                <a class="nav-link" href="/list">Liste des CVs</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/list">Liste des CVs</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Options</a>
-            </li>
+
         </ul>
     </div>
 </nav>
-<h1>Modification</h1>
+
+<div class="container">
+    <form method="post" th:action="@{/new}" th:object="${user}">
+
+        <div class="row">
+            <div class="col py-3 px-lg-5">
+                <div class="mb-4" align="center">
+                    <div class="d-flex justify-content-center">
+                        <div class="row">
+                            <div class="col-sm">
+                                <img id="blah" class="roundPhotoId" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" alt="your image" />
+                            </div>
+                            <div class="col-sm d-flex align-items-center">
+                                <input type='file' onchange="readURL(this);" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container">
+                    <label style=" border-style: inset; display: block">CONTACT</label>
+                    <div class="form-group">
+                        <label for="firstNameInput">Téléphone</label>
+                        <input type="text" th:field="*{firstName}" class="form-control" id="firstNameInput"
+                               aria-describedby="firstNameHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastNameInput">E-mail</label>
+                        <input type="text" th:field="*{lastName}" class="form-control" id="lastNameInput"
+                               aria-describedby="lastNameHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="ageInput">Adresse</label>
+                        <input type="text" th:field="*{age}" class="form-control" id="ageInput"
+                               aria-describedby="ageHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="ageInput">Linkedin</label>
+                        <input type="text" th:field="*{age}" class="form-control" id="ageInput"
+                               aria-describedby="ageHelp">
+                    </div>
+
+                </div>
+                <div class="container">
+                    <label style=" border-style: inset; display: block">LANGUES</label>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Francais">Français
+                            </div>
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Anglais">Anglais
+                            </div>
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Espagnol">Espagnol
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Allemand">Allemand
+                            </div>
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Russe">Russe
+                            </div>
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Chinois">Chinois
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <label style=" border-style: inset; display: block">COMPETENCES</label>
+                </div>
+
+                <div class="container">
+                    <label style=" border-style: inset; display: block">CENTRES D'INTERETS</label>
+                </div>
 
 
-    <td th:text="${user.lastName}"></td>
+            </div>
+            <div class="col py-3 px-lg-5">
+                <div class="container">
+                    <div class="form-group">
+                        <label for="firstNameInput">Prénom</label>
+                        <input type="text" th:field="*{firstName}" class="form-control" id="firstNameInput"
+                               aria-describedby="firstNameHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastNameInput">Nom</label>
+                        <input type="text" th:field='${user.lastName}' class="form-control" id="lastNameInput"
+                               aria-describedby="lastNameHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="ageInput">Age</label>
+                        <input type="text" th:field="*{age}" class="form-control" id="ageInput"
+                               aria-describedby="ageHelp">
+                    </div>
+                </div>
 
-</tr>
+                <div class="container">
+                    <label style=" border-style: inset; display: block">DESCRIPTION</label>
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <label style=" border-style: inset; display: block">FORMATIONS</label>
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <label style=" border-style: inset; display: block">EXPERIENCES</label>
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container" align="center">
+                <button type="submit" class="btn btn-light">Ajouter</button>
+            </div>
+        </div>
+
+
+    </form>
+</div>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 </html>
+
+    <td ></td>
+
