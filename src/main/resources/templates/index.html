@@ -1,16 +1,23 @@
+
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+
     <title>CV Creator</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+
+
 </head>
 
-<body background="mountains_lake_tops_top_view_119133_3840x2160.jpg">
+<body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
     <a class="navbar-brand" href="/index">CV Creator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -26,6 +33,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/list">Liste des CVs</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/index_dev">Test Menu</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -35,6 +45,8 @@
 </div>
 
 <div class="container">
+    <img th:src="@{/img/header-bg.jpg}">
+    <h1 class="titre-principal">Bienvenue sur CV CREATOR</h1>
     <span th:text="${message}"></span>
 </div>
 

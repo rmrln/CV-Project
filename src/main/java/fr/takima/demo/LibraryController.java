@@ -1,5 +1,6 @@
 package fr.takima.demo;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,12 @@ public class LibraryController {
     public String indexPage(Model m) {
 
         return "index";
+    }
+
+    @GetMapping("/index_dev")
+    public String testPage(Model m) {
+
+        return "index_dev";
     }
 
     @GetMapping("/list")
