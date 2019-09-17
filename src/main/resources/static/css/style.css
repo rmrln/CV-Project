@@ -38,6 +38,19 @@ header.headPers{
     color: #062c33;
     margin-bottom: auto;
 }
+footer {position: absolute; bottom: 0;}
+
+footer.icone{
+    size: 64px 64px;
+}
+.footer{padding:25px 0;text-align:center}
+
+
+.center-div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1em;
+}
 
 .button {
 background-color:#fed136;
