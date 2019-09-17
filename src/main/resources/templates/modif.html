@@ -11,69 +11,10 @@
     <link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css">
 </head>
 
-<script type='text/javascript'>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#blah')
-                    .attr('src', e.target.result);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
-<style>
-
-    img {
-        max-width: 180px;
-
-    }
-
-    .roundPhotoId {
-        overflow: hidden;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        border-radius: 50px;
-        width: 150px;
-        height: 150px;
-    }
-
-    .upload-btn-wrapper {
-        position: relative;
-        overflow: hidden;
-        display: inline-block;
-    }
-
-    .btn {
-        border: 2px solid gray;
-        color: gray;
-        background-color: white;
-        padding: 8px 20px;
-        border-radius: 8px;
-        font-size: 13px;
-        font-weight: bold;
-    }
-
-    ::-webkit-file-upload-button {
-        cursor: pointer;
-    }
-
-    .upload-btn-wrapper input[type=file] {
-        font-size: 40px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        opacity: 0;
-        cursor: pointer;
-    }
-
-</style>
+<script type="text/javascript" th:src="@{/js/readURL.js}"></script>
 
 
-<body style="background-color: darkslategrey; color: floralwhite;">
+<body class="bodyNew">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/index">CV Creator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"

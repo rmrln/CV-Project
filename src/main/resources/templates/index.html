@@ -11,44 +11,45 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 
-
 </head>
 
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
     <a class="navbar-brand" href="/index">CV Creator</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item">
-                <a class="nav-link" href="/new">Création</a>
+                <a class="nav-link active" href="/index">Home </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/new">Création <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/list">Liste des CVs</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/index_dev">Test Menu</a>
-            </li>
+
         </ul>
     </div>
 </nav>
 
-<div>
-    <img src="mountains_lake_tops_top_view_119133_3840x2160.jpg">
-</div>
+<!-- Header -->
+<header class="headPers">
+    <div class="container">
+        <div class="intro-text">
+            <div class="white">l</div>
+            <div class="test">Tu veux un CV mais tu ne sais pas comment faire?</div>
+            <div class="intro-heading text-uppercase">Laisse toi guider!</div>
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/new">Let's Go!</a>
+            <div class="white">l</div>
+        </div>
+    </div>
+</header>
 
-<div class="container">
-    <img th:src="@{/img/header-bg.jpg}">
-    <h1 class="titre-principal">Bienvenue sur CV CREATOR</h1>
-    <span th:text="${message}"></span>
-</div>
 
 
 
