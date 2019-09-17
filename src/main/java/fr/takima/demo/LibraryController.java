@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  *
@@ -29,12 +28,6 @@ public class LibraryController {
         return "index";
     }
 
-    @GetMapping("/new")
-    public String addUserPage(Model m) {
-        m.addAttribute("user", new User());
-        return "new";
-    }
-
     @GetMapping("/index")
     public String indexPage(Model m) {
 
@@ -51,6 +44,15 @@ public class LibraryController {
     public String listCVs(Model m) {
         m.addAttribute("users", userDAO.findAll());
         return "list";
+    }
+
+    @GetMapping("/new")
+    public String addUserPage(Model m) {
+        User user = new User();
+        Set<Formation> formations = new HashSet<>();
+        user.setFormations(formations);
+        m.addAttribute("user", user);
+        return "new";
     }
 
     @PostMapping("/new")
