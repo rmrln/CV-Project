@@ -19,7 +19,7 @@ data class User(
         @Column(name = "last_name") var lastName: String?,
         @Column(name = "age") var age: Int?,
         @Column(name = "phone_number") var phoneNumber: Int?,
-        @Column(name = "adress") var adress: String?,
+        @Column(name = "address") var address: String?,
         @Column(name = "linkedin") var linkedin: String?,
         @Column(name = "mail") var mail: String?,
         @Column(name = "presentation") var presentation: String?,
