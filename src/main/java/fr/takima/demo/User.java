@@ -1,0 +1,188 @@
+package fr.takima.demo;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @Column(name = "picture")
+    private  String picture;
+    @Column(name = "cv_title")
+    private  String cvTitle;
+    @Column(name = "first_name")
+    private  String firstName;
+    @Column(name = "last_name")
+    private  String lastName;
+    @Column(name = "age")
+    private  String age;
+    @Column(name = "phone_number")
+    private  String phoneNumber;
+    @Column(name = "address")
+    private  String address;
+    @Column(name = "linkedin")
+    private  String linkedin;
+    @Column(name = "mail")
+    private  String mail;
+    @Column(name = "presentation")
+    private  String presentation;
+    @Column(name = "skill")
+    private  String skill;
+    @Column(name = "hobby")
+    private  String hobby;
+    @Column(name = "language")
+    private  String language;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private  List<Formation> formations;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Experience> experiences;
+
+
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public String getCvTitle() {
+        return cvTitle;
+    }
+
+    public void setCvTitle(String cvTitle) {
+        this.cvTitle = cvTitle;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getLinkedin() {
+        return linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getPresentation() {
+        return presentation;
+    }
+
+    public void setPresentation(String presentation) {
+        this.presentation = presentation;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public List<Formation> getFormation() {
+        return formations;
+    }
+
+    public void setFormation(List<Formation> formation) {
+        this.formations = formation;
+    }
+
+    public List<Experience> getExperience() {
+        return experiences;
+    }
+
+    public void setExperience(List<Experience> experience) {
+        this.experiences = experience;
+    }
+
+    public void addExperience(Experience experience) {
+        experiences.add(experience);
+        experience.setUser(this);
+    }
+
+    public void removeExperience(Experience experience) {
+        experiences.remove(experience);
+        experience.setUser(null);
+    }
+}
