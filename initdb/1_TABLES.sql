@@ -3,7 +3,7 @@ create table users
     id bigint auto_increment,
     constraint users_pk
         primary key (id),
-    cv_tittle TEXT not null,
+    cv_title TEXT not null,
     first_name TEXT not null,
     last_name TEXT not null,
     age int null,
@@ -18,7 +18,7 @@ create table formations
 (
     FormationID bigint auto_increment,
     PRIMARY KEY (FormationID),
-    formation_tittle TEXT not null,
+    formation_title TEXT not null,
     formation_description TEXT not null,
     formation_name TEXT not null,
     formation_date int null,
@@ -30,7 +30,7 @@ create table experiences
 (
     ExperienceID bigint auto_increment,
     PRIMARY KEY (ExperienceID),
-    experience_tittle TEXT not null,
+    experience_title TEXT not null,
     experience_description TEXT not null,
     experience_position TEXT not null,
     experience_name TEXT not null,

@@ -10,7 +10,7 @@ import org.hibernate.annotations.OnDeleteAction;
 data class Formation(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Id var FormationID: Long?,
-        @Column(name = "formation_tittle") var formationTittle: String?,
+        @Column(name = "formation_title") var formationTitle: String?,
         @Column(name = "formation_description") var formationDescription: String?,
         @Column(name = "formation_name") var formationName: String?,
         @Column(name = "formation_date") var formationDate: Int?,

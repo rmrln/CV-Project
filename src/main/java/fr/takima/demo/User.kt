@@ -13,7 +13,7 @@ import java.util.ArrayList
 data class User(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Id var id: Long?,
-        @Column(name = "cv_tittle") var cvTittle: String?,
+        @Column(name = "cv_title") var cvTitle: String?,
         @Column(name = "first_name") var firstName: String?,
         @Column(name = "last_name") var lastName: String?,
         @Column(name = "age") var age: Int?,

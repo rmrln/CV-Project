@@ -8,7 +8,7 @@ import javax.persistence.*
 data class Experience(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Id var ExperienceID: Long?,
-        @Column(name = "experience_tittle") var experienceTittle: String?,
+        @Column(name = "experience_title") var experienceTitle: String?,
         @Column(name = "experience_description") var experienceDescription: String?,
         @Column(name = "experience_position") var experiencePosition: String?,
         @Column(name = "experience_name") var experienceName: String?,
