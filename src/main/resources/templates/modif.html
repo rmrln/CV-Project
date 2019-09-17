@@ -7,7 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css">
 </head>
 
 <script type='text/javascript'>
@@ -25,23 +26,49 @@
     }
 </script>
 <style>
-    #output_image
-    {
-        max-width:300px;
-    }
-    img{
-        max-width:180px;
+
+    img {
+        max-width: 180px;
 
     }
+
     .roundPhotoId {
-        overflow:hidden;
-        -webkit-border-radius:50px;
-        -moz-border-radius:50px;
-        border-radius:50px;
-        width:150px;
-        height:150px;
+        overflow: hidden;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        width: 150px;
+        height: 150px;
     }
 
+    .upload-btn-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .btn {
+        border: 2px solid gray;
+        color: gray;
+        background-color: white;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    ::-webkit-file-upload-button {
+        cursor: pointer;
+    }
+
+    .upload-btn-wrapper input[type=file] {
+        font-size: 40px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
 
 </style>
 
@@ -78,10 +105,15 @@
                     <div class="d-flex justify-content-center">
                         <div class="row">
                             <div class="col-sm">
-                                <img id="blah" class="roundPhotoId" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" alt="your image" />
+                                <img id="blah" class="roundPhotoId"
+                                     src="http://www.samuelduplaix.com/wp-content/uploads/2015/01/Icone-appareil-photo.jpg"
+                                     alt="your image"/>
                             </div>
                             <div class="col-sm d-flex align-items-center">
-                                <input type='file' onchange="readURL(this);" />
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn">Ajouter une photo</button>
+                                    <input type="file" name="myfile" onchange="readURL(this);"/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,23 +123,50 @@
                     <label style=" border-style: inset; display: block">CONTACT</label>
                     <div class="form-group">
                         <label for="firstNameInput">Téléphone</label>
-                        <input type="text" th:field="*{firstName}" class="form-control" id="firstNameInput"
-                               aria-describedby="firstNameHelp">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"
+                                                                                    aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" th:field="*{firstName}" class="form-control" id="telephoneInput"
+                                   aria-describedby="firstNameHelp">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="lastNameInput">E-mail</label>
-                        <input type="text" th:field="*{lastName}" class="form-control" id="lastNameInput"
-                               aria-describedby="lastNameHelp">
+                        <label for="ageInput">E-mail</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-envelope-o"
+                                                                                    aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" th:field="*{lastName}" class="form-control" id="emailInput"
+                                   aria-describedby="lastNameHelp">
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="ageInput">Adresse</label>
-                        <input type="text" th:field="*{age}" class="form-control" id="ageInput"
-                               aria-describedby="ageHelp">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3"><i class="fa fa-home"
+                                                                                    aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" th:field="*{age}" class="form-control" id="addresseInput"
+                                   aria-describedby="ageHelp">
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="ageInput">Linkedin</label>
-                        <input type="text" th:field="*{age}" class="form-control" id="ageInput"
-                               aria-describedby="ageHelp">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon4"><i class="fa fa-linkedin"
+                                                                                    aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" th:field="*{age}" class="form-control" id="linkedinInput"
+                                   aria-describedby="ageHelp">
+                        </div>
+
                     </div>
 
                 </div>
@@ -138,7 +197,7 @@
                 </div>
 
                 <div class="container">
-                    <label style=" border-style: inset; display: block">CENTRES D'INTERETS</label>
+                    <label style=" border-style: inset ; display: block">CENTRES D'INTERETS</label>
                 </div>
 
 
@@ -147,39 +206,59 @@
                 <div class="container">
                     <div class="form-group">
                         <label for="firstNameInput">Prénom</label>
-                        <input type="text" th:field="*{firstName}" class="form-control" id="firstNameInput"
-                               aria-describedby="firstNameHelp">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon5"><i class="fa fa-user"
+                                                                                    aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" th:field="*{firstName}" class="form-control" id="firstNameInput"
+                                   aria-describedby="firstNameHelp">
+
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="lastNameInput">Nom</label>
-                        <input type="text" th:field='${user.lastName}' class="form-control" id="lastNameInput"
-                               aria-describedby="lastNameHelp">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon6"><i class="fa fa-user"
+                                                                                    aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" th:field="*{lastName}" class="form-control" id="lastNameInput"
+                                   aria-describedby="lastNameHelp">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="ageInput">Age</label>
-                        <input type="text" th:field="*{age}" class="form-control" id="ageInput"
-                               aria-describedby="ageHelp">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon7"><i class="fa fa-user"
+                                                                                    aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" th:field="*{age}" class="form-control" id="ageInput"
+                                   aria-describedby="ageHelp">
+                        </div>
                     </div>
-                </div>
 
+                </div>
                 <div class="container">
                     <label style=" border-style: inset; display: block">DESCRIPTION</label>
                     <div class="form-group">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="descriptionTextarea" rows="3"></textarea>
                     </div>
                 </div>
+
 
                 <div class="container">
                     <label style=" border-style: inset; display: block">FORMATIONS</label>
                     <div class="form-group">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="formationsTextarea" rows="3"></textarea>
                     </div>
                 </div>
 
                 <div class="container">
                     <label style=" border-style: inset; display: block">EXPERIENCES</label>
                     <div class="form-group">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="experiencesTextarea" rows="3"></textarea>
                     </div>
                 </div>
 
