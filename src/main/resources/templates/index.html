@@ -6,6 +6,7 @@
 <head>
 
     <title>CV Creator</title>
+    <link th:href="@{/css/all.min.css}" rel="stylesheet" type="text/css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,11 +26,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/index">Home </a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/new">Création <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="/new">Création</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/list">Liste des CVs</a>
@@ -53,8 +54,30 @@
 </header>
 
 
-
+<footer>
+    <label>Nous contacter :</label>
+    <div class="col-md-4">
+        <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
 
 </body>
 
+       <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
 </html>
