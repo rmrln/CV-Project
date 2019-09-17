@@ -199,7 +199,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="formation : ${user.formations}">
+                                <tr th:each="formation : ${user.formation}">
                                     <td class="col-sm-3">
                                         <input type="text" th:field="*{formation.formationTitle}" th:value="${formation.formationTitle}" name="entreprise" class="form-control" />
                                     </td>
