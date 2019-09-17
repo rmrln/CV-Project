@@ -73,7 +73,7 @@
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{phoneNumber}" class="form-control" id="telephoneInput"
+                            <input type="text" th:field="*{firstName}" class="form-control" id="telephoneInput"
                                    aria-describedby="firstNameHelp">
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                                 <span class="input-group-text" id="basic-addon2"><i class="fa fa-envelope-o"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{mail}" class="form-control" id="emailInput"
+                            <input type="text" th:field="*{lastName}" class="form-control" id="emailInput"
                                    aria-describedby="lastNameHelp">
                         </div>
 
@@ -96,7 +96,7 @@
                                 <span class="input-group-text" id="basic-addon3"><i class="fa fa-home"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{address}" class="form-control" id="addresseInput"
+                            <input type="text" th:field="*{age}" class="form-control" id="addresseInput"
                                    aria-describedby="ageHelp">
                         </div>
 
@@ -108,7 +108,7 @@
                                 <span class="input-group-text" id="basic-addon4"><i class="fa fa-linkedin"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{linkedin}" class="form-control" id="linkedinInput"
+                            <input type="text" th:field="*{age}" class="form-control" id="linkedinInput"
                                    aria-describedby="ageHelp">
                         </div>
 
@@ -139,16 +139,10 @@
 
                 <div class="container">
                     <label style=" border-style: inset; display: block">COMPETENCES</label>
-                    <div class="form-group">
-                        <textarea class="form-control" th:field="*{skill}" id="competencesTextarea" rows="3"></textarea>
-                    </div>
                 </div>
 
                 <div class="container">
                     <label style=" border-style: inset ; display: block">CENTRES D'INTERETS</label>
-                    <div class="form-group">
-                        <textarea class="form-control" th:field="*{hobby}" id="centresInteretsTextarea" rows="3"></textarea>
-                    </div>
                 </div>
 
 
@@ -194,7 +188,7 @@
                 <div class="container">
                     <label style=" border-style: inset; display: block">DESCRIPTION</label>
                     <div class="form-group">
-                        <textarea class="form-control" th:field="*{presentation}" id="descriptionTextarea" rows="3"></textarea>
+                        <textarea class="form-control" id="descriptionTextarea" rows="3"></textarea>
                     </div>
                 </div>
 
@@ -203,7 +197,7 @@
                     <label style=" border-style: inset; display: block">FORMATIONS</label>
                     <div class="form-group">
                         <div class="container">
-                            <table id="myTable" class=" table order-list table-borderless">
+                            <table id="myTable" class=" table order-list table-borderless" >
                                 <thead>
                                 <tr style="color: white">
                                     <td>Entreprise</td>
@@ -215,19 +209,19 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class="col-sm-4">
+                                    <td class="col-sm-3">
                                         <input type="text" name="entreprise" class="form-control" />
                                     </td>
-                                    <td class="col-sm-4">
+                                    <td class="col-sm-3">
                                         <input type="mail" name="poste"  class="form-control"/>
                                     </td>
-                                    <td class="col-sm-4">
+                                    <td class="col-sm-3">
                                         <input type="text" name="description"  class="form-control"/>
                                     </td>
-                                    <td class="col-sm-4">
+                                    <td class="col-sm-3">
                                         <input type="text" name="date"  class="form-control"/>
                                     </td>
-                                    <td class="col-sm-3"><a class="deleteRow"></a>
+                                    <td class="col-sm-1"><a class="deleteRow"></a>
 
                                     </td>
                                 </tr>
