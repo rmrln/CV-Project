@@ -11,6 +11,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css">
 
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </head>
 
 <script type="text/javascript" th:src="@{/js/readURL.js}"></script>
@@ -158,60 +161,100 @@
 
                         </div>
                     </div>
-                        <div class="form-group">
-                            <label for="lastNameInput">Nom</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
+                    <div class="form-group">
+                        <label for="lastNameInput">Nom</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon6"><i class="fa fa-user"
                                                                                     aria-hidden="true"></i></span>
-                                </div>
-                                <input type="text" th:field="*{lastName}" class="form-control" id="lastNameInput"
-                                       aria-describedby="lastNameHelp">
                             </div>
+                            <input type="text" th:field="*{lastName}" class="form-control" id="lastNameInput"
+                                   aria-describedby="lastNameHelp">
                         </div>
-                            <div class="form-group">
-                                <label for="ageInput">Age</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
+                    </div>
+                    <div class="form-group">
+                        <label for="ageInput">Age</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon7"><i class="fa fa-user"
                                                                                     aria-hidden="true"></i></span>
-                                    </div>
-                                    <input type="text" th:field="*{age}" class="form-control" id="ageInput"
-                                           aria-describedby="ageHelp">
-                                </div>
                             </div>
-
+                            <input type="text" th:field="*{age}" class="form-control" id="ageInput"
+                                   aria-describedby="ageHelp">
                         </div>
+                    </div>
+
+                </div>
+                <div class="container">
+                    <label style=" border-style: inset; display: block">DESCRIPTION</label>
+                    <div class="form-group">
+                        <textarea class="form-control" id="descriptionTextarea" rows="3"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <label style=" border-style: inset; display: block">FORMATIONS</label>
+                    <div class="form-group" th:object="${}">
                         <div class="container">
-                            <label style=" border-style: inset; display: block">DESCRIPTION</label>
-                            <div class="form-group">
-                                <textarea class="form-control" id="descriptionTextarea" rows="3"></textarea>
-                            </div>
-                        </div>
+                            <table id="myTable" class=" table order-list table-borderless" >
+                                <thead>
+                                <tr style="color: white">
+                                    <td>Entreprise</td>
+                                    <td>Poste</td>
+                                    <td>Description</td>
+                                    <td>Date</td>
+                                    <td></td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="col-sm-3">
+                                        <input type="text" th:field="*{}" name="entreprise" class="form-control" />
+                                    </td>
+                                    <td class="col-sm-3">
+                                        <input type="mail" name="poste"  class="form-control"/>
+                                    </td>
+                                    <td class="col-sm-3">
+                                        <input type="text" name="description"  class="form-control"/>
+                                    </td>
+                                    <td class="col-sm-3">
+                                        <input type="text" name="date"  class="form-control"/>
+                                    </td>
+                                    <td class="col-sm-1"><a class="deleteRow"></a>
 
-
-                    <div class="container">
-                        <label style=" border-style: inset; display: block">FORMATIONS</label>
-                        <div class="form-group">
-                            <textarea class="form-control" id="formationsTextarea" rows="3"></textarea>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="5" style="text-align: left;">
+                                        <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
+                </div>
 
-                    <div class="container">
-                        <label style=" border-style: inset; display: block">EXPERIENCES</label>
-                        <div class="form-group">
-                            <textarea class="form-control" id="experiencesTextarea" rows="3"></textarea>
-                        </div>
+                <div class="container">
+                    <label style=" border-style: inset; display: block">EXPERIENCES</label>
+                    <div class="form-group">
+                        <textarea class="form-control" id="experiencesTextarea" rows="3"></textarea>
                     </div>
-
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="container" align="center">
-                    <button type="submit" class="btn btn-light">Ajouter</button>
-                </div>
             </div>
+        </div>
+
+        <div class="row">
+            <div class="container" align="center">
+                <button type="submit" class="btn btn-light">Ajouter</button>
+            </div>
+        </div>
 
 
     </form>

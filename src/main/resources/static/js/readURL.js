@@ -10,3 +10,34 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+$(document).ready(function () {
+    var counter = 0;
+
+    $("#addrow").on("click", function () {
+        var newRow = $("<tr>");
+        var cols = "";
+
+        cols += '<td><input type="text" class="form-control" name="entreprise' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="poste' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="description' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="date' + counter + '"/></td>';
+
+        cols += '<td><button class="ibtnDel btn btn-md btn-danger "><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>';
+        newRow.append(cols);
+        $("table.order-list").append(newRow);
+        counter++;
+    });
+
+
+
+    $("table.order-list").on("click", ".ibtnDel", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+    });
+
+
+});
+
+
+
