@@ -48,10 +48,10 @@ public class LibraryController {
 
     @GetMapping("/new")
     public String addUserPage(Model m) {
-        User user = new User();
-        Set<Formation> formations = new HashSet<>();
-        user.setFormations(formations);
-        m.addAttribute("user", user);
+       // User user = new User();
+       // Set<Formation> formations = new HashSet<>();
+        //user.setFormations(formations);
+        m.addAttribute("user", new User());
         return "new";
     }
 
