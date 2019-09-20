@@ -11,6 +11,33 @@ img {
     max-width: 180px;
 
 }
+.ml4 {
+    position: relative;
+    font-weight: 900;
+    font-size: 4.5em;
+}
+.ml4 .letters {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0.3em;
+    right: 0;
+    opacity: 0;
+}
+.formTitle{
+    border-style: inset;
+    display: block
+}
+
+.formBlock{
+
+}
+
+.navTitle{
+    font-size: 1.2em;
+    font-family: 'Pacifico', cursive;
+    color: #1d2124;
+}
 
 header.headPers{
     text-align:center;
@@ -32,11 +59,22 @@ header.headPers{
     color: #1d2124;
 }
 
+.newTitle{
+    font-size: 3.5em;
+    font-family: 'Pacifico', cursive;
+    color: #1d2124;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5em
+}
+
 .subTitle{
-    font-size: 3em;
+    font-size: 2.5em;
     font-family: 'Pacifico', cursive;
     color: #062c33;
-    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5em
 }
 footer {position: absolute; bottom: 0;}
 

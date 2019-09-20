@@ -8,9 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" href="https://fontawesome.com/v4.7.0/assets/font-awesome/css/font-awesome.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -21,7 +22,7 @@
 
 <body class="bodyNew">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/index">CV Creator</a>
+    <a class="navbar-brand navTitle" href="/index">CV Creator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,6 +43,7 @@
 </nav>
 
 <div class="container">
+    <h2 class="newTitle">La création</h2>
     <form method="post" th:action="@{/new}" th:object="${user}">
 
         <div class="row">
@@ -65,7 +67,7 @@
 
                 </div>
                 <div class="container">
-                    <label style=" border-style: inset; display: block">CONTACT</label>
+                    <label class="formTitle">CONTACT</label>
                     <div class="form-group">
                         <label for="firstNameInput">Téléphone</label>
                         <div class="input-group mb-3">
@@ -116,24 +118,33 @@
 
                 </div>
                 <div class="container">
-                    <label style=" border-style: inset; display: block">LANGUES</label>
+                    <label class="formTitle">LANGUES</label>
                     <div class="form-group">
-                        <textarea class="form-control" th:field="*{language}" id="languageTextarea" rows="3"></textarea>
+                        <div class="row">
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Francais">Français
+                            </div>
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Anglais">Anglais
+                            </div>
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Espagnol">Espagnol
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Allemand">Allemand
+                            </div>
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Russe">Russe
+                            </div>
+                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Chinois">Chinois
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="container">
                     <label style=" border-style: inset; display: block">COMPETENCES</label>
-                    <div class="form-group">
-                        <textarea class="form-control" th:field="*{skill}" id="skillTextarea" rows="3"></textarea>
-                    </div>
                 </div>
 
                 <div class="container">
                     <label style=" border-style: inset ; display: block">CENTRES D'INTERETS</label>
-                    <div class="form-group">
-                        <textarea class="form-control" th:field="*{hobby}" id="hobbyTextarea" rows="3"></textarea>
-                    </div>
                 </div>
 
 
@@ -199,18 +210,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="formation : ${user.formation}">
+                                <tr>
                                     <td class="col-sm-3">
-                                        <input type="text" th:field="*{formation.formationTitle}" th:value="${formation.formationTitle}" name="entreprise" class="form-control" />
+                                        <input type="text" name="entreprise" class="form-control" />
                                     </td>
                                     <td class="col-sm-3">
-                                        <input type="mail" th:field="*{formation.formationName}" th:value="${formation.formationName}" name="poste"  class="form-control"/>
+                                        <input type="mail" name="poste"  class="form-control"/>
                                     </td>
                                     <td class="col-sm-3">
-                                        <input type="text" th:field="*{formation.formationDescription}" th:value="${formation.formationDescription}" name="description"  class="form-control"/>
+                                        <input type="text" name="description"  class="form-control"/>
                                     </td>
                                     <td class="col-sm-3">
-                                        <input type="text" th:field="*{formation.formationDate}" th:value="${formation.formationDate}" name="date"  class="form-control"/>
+                                        <input type="text" name="date"  class="form-control"/>
                                     </td>
                                     <td class="col-sm-1"><a class="deleteRow"></a>
 

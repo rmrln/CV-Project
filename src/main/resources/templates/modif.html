@@ -16,7 +16,7 @@
 
 <body class="bodyNew">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/index">CV Creator</a>
+    <a class="navbar-brand navTitle" href="/index">CV Creator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -26,10 +26,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="/index">Home </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/new">Création <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/list">Liste des CVs</a>
             </li>
 
@@ -38,7 +38,16 @@
 </nav>
 
 <div class="container">
+    <h2 class="newTitle">La modif</h2>
     <form method="post" th:action="@{/new}" th:object="${user}">
+        <div class="row">
+            <h2 class="subTitle">Le titre</h2>
+            <div class="col py-3 px-lg-5">
+
+            <input type="text" th:field="*{cvTitle}" class="form-control" id="cvTitle"
+                    aria-describedby="firstNameHelp">
+            </div>
+        </div>
 
         <div class="row">
             <div class="col py-3 px-lg-5">
@@ -61,15 +70,15 @@
 
                 </div>
                 <div class="container">
-                    <label style=" border-style: inset; display: block">CONTACT</label>
+                    <label class="formTitle">CONTACT</label>
                     <div class="form-group">
-                        <label for="firstNameInput">Téléphone</label>
+                        <label for="telephoneInput">Téléphone</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{firstName}" class="form-control" id="telephoneInput"
+                            <input type="tel" th:field="*{phoneNumber}" class="form-control" id="telephoneInput"
                                    aria-describedby="firstNameHelp">
                         </div>
                     </div>
@@ -80,7 +89,7 @@
                                 <span class="input-group-text" id="basic-addon2"><i class="fa fa-envelope-o"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{lastName}" class="form-control" id="emailInput"
+                            <input type="text" th:field="*{mail}" class="form-control" id="emailInput"
                                    aria-describedby="lastNameHelp">
                         </div>
 
@@ -92,7 +101,7 @@
                                 <span class="input-group-text" id="basic-addon3"><i class="fa fa-home"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{age}" class="form-control" id="addresseInput"
+                            <input type="text" th:field="*{address}" class="form-control" id="addresseInput"
                                    aria-describedby="ageHelp">
                         </div>
 
@@ -104,7 +113,7 @@
                                 <span class="input-group-text" id="basic-addon4"><i class="fa fa-linkedin"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{age}" class="form-control" id="linkedinInput"
+                            <input type="text" th:field="*{linkedin}" class="form-control" id="linkedinInput"
                                    aria-describedby="ageHelp">
                         </div>
 
@@ -112,7 +121,7 @@
 
                 </div>
                 <div class="container">
-                    <label style=" border-style: inset; display: block">LANGUES</label>
+                    <label class="formTitle">LANGUES</label>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Francais">Français
@@ -134,11 +143,11 @@
                 </div>
 
                 <div class="container">
-                    <label style=" border-style: inset; display: block">COMPETENCES</label>
+                    <label class="formTitle">COMPETENCES</label>
                 </div>
 
                 <div class="container">
-                    <label style=" border-style: inset ; display: block">CENTRES D'INTERETS</label>
+                    <label class="formTitle">CENTRES D'INTERETS</label>
                 </div>
 
 
@@ -182,7 +191,7 @@
 
                 </div>
                 <div class="container">
-                    <label style=" border-style: inset; display: block">DESCRIPTION</label>
+                    <label class="formTitle">DESCRIPTION</label>
                     <div class="form-group">
                         <textarea class="form-control" id="descriptionTextarea" rows="3"></textarea>
                     </div>
@@ -190,16 +199,16 @@
 
 
                 <div class="container">
-                    <label style=" border-style: inset; display: block">FORMATIONS</label>
+                    <label class="formTitle">FORMATIONS</label>
                     <div class="form-group">
                         <textarea class="form-control" id="formationsTextarea" rows="3"></textarea>
                     </div>
                 </div>
 
                 <div class="container">
-                    <label style=" border-style: inset; display: block">EXPERIENCES</label>
+                    <label class="formTitle">EXPERIENCES</label>
                     <div class="form-group">
-                        <textarea class="form-control" id="experiencesTextarea" rows="3"></textarea>
+                        <textarea class="form-control" id="experiencesTextarea" rows="3" ></textarea>
                     </div>
                 </div>
 
