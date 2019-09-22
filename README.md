@@ -20,8 +20,12 @@ Puis parcourez vos dossiers et sélectionner le dossier "CV-Project" (son emplac
 Si les scripts ne se sont pas éxécutés automatiquement il faudra les éxécuter dans IntelliJ IDEA en faisant un clic droit puis "run" sur chacun des 2 scripts.
 
 
-5. Lancer l'application en cliquant sur la flèche verte en haut à droite : 
+5. Ajouter l'extension 'Allow CORS: Access-Control-Allow-Origin' à votre navigateur (affichage des icônes) : 
+https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=fr&fbclid=IwAR2bcyq5pVkrql8D5PjjVM0H-YkoDLLBqJwBvb1xI7vKmqafwpWV2ti_dIQ
+
+
+6. Lancer l'application en cliquant sur la flèche verte en haut à droite : 
 ![lancement](https://user-images.githubusercontent.com/55136814/65386612-48c39980-dd3e-11e9-9047-a3efcb6a3113.JPG)
 
 
-6. Ouvrez votre navigateur et saisissez l'adresse 'localhost:8080', la page d'accueil de l'application va alors s'afficher
+7. Ouvrez votre navigateur et saisissez l'adresse 'localhost:8080', la page d'accueil de l'application va alors s'afficher
