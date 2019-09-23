@@ -213,7 +213,7 @@
                                         <input type="text" th:field="*{formation.formationTitle}" th:value="${formation.formationTitle}" name="nom" class="form-control" />
                                     </td>
                                     <td class="col-sm-4">
-                                        <input type="text" th:field="*{formation.formationDescription}" th:value="${formation.formationDescription" name="description" class="form-control" />
+                                        <input type="text" th:field="*{formation.formationDescription}" th:value="${formation.formationDescription}" name="description" class="form-control" />
                                     </td>
                                     <td class="col-sm-3">
                                         <input type="text" th:field="*{formation.formationDate}" th:value="${formation.formationDate}" name="date" class="form-control" />
@@ -240,7 +240,45 @@
                 <div class="container">
                     <label style=" border-style: inset; display: block">EXPERIENCES</label>
                     <div class="form-group">
-                        <textarea class="form-control" id="experiencesTextarea" rows="3" required></textarea>
+                        <div class="container">
+                            <table id="myTable2" class=" table order-list2">
+                                <thead>
+                                <tr style="color: white">
+                                    <td>Entreprise</td>
+                                    <td>Poste</td>
+                                    <td>Description</td>
+                                    <td>Date</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="experience : ${user.experience}">
+                                    <td class="col-sm-4">
+                                        <input type="text" th:field="*{experience.experienceTitle}" th:value="${experience.experienceTitle}" name="nom" class="form-control" />
+                                    </td>
+                                    <td class="col-sm-4">
+                                        <input type="text" th:field="*{experience.experiencePosition}" th:value="${experience.experiencePosition}" name="poste" class="form-control" />
+                                    </td>
+                                    <td class="col-sm-4">
+                                        <input type="text" th:field="*{experience.experienceDescription}" th:value="${experience.experienceDescription}" name="description" class="form-control" />
+                                    </td>
+                                    <td class="col-sm-3">
+                                        <input type="text" th:field="*{experience.experienceDate}" th:value="${experience.experienceDate}" name="date" class="form-control" />
+                                    </td>
+                                    <td class="col-sm-2"><a class="deleteRow"></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="5" style="text-align: left;">
+                                        <input type="button" class="btn btn-lg btn-block " id="addrow2" value="Add Row" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
