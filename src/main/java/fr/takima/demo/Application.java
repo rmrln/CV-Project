@@ -1,6 +1,5 @@
 package fr.takima.demo;
 
-import Controller.FileUploadController;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -19,7 +18,7 @@ import java.io.File;
 public class Application {
 
   public static void main(String[] args) {
-    new File(FileUploadController.uploadDirectory).mkdir();
+
     new SpringApplicationBuilder(Application.class)
         .run();
   }
