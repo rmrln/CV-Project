@@ -18,8 +18,7 @@ $(document).ready(function () {
         var newRow = $("<tr>");
         var cols = "";
 
-        cols += '<td><input type="text" class="form-control" name="entreprise' + counter + '"/></td>';
-        cols += '<td><input type="text" class="form-control" name="poste' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="nom' + counter + '"/></td>';
         cols += '<td><input type="text" class="form-control" name="description' + counter + '"/></td>';
         cols += '<td><input type="text" class="form-control" name="date' + counter + '"/></td>';
 
@@ -38,15 +37,4 @@ $(document).ready(function () {
 
 
 });
-
-$('.field__input').on('input', function() {
-    var $field = $(this).closest('.field');
-    if (this.value) {
-        $field.addClass('field--not-empty');
-    } else {
-        $field.removeClass('field--not-empty');
-    }
-});
-
-
 

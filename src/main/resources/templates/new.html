@@ -75,7 +75,7 @@
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{firstName}" class="form-control" id="telephoneInput"
+                            <input type="text" th:field="*{phoneNumber}" class="form-control" id="telephoneInput"
                                    aria-describedby="firstNameHelp">
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                                 <span class="input-group-text" id="basic-addon2"><i class="fa fa-envelope-o"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{lastName}" class="form-control" id="emailInput"
+                            <input type="text" th:field="*{mail}" class="form-control" id="emailInput"
                                    aria-describedby="lastNameHelp">
                         </div>
 
@@ -98,7 +98,7 @@
                                 <span class="input-group-text" id="basic-addon3"><i class="fa fa-home"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{age}" class="form-control" id="addresseInput"
+                            <input type="text" th:field="*{address}" class="form-control" id="addresseInput"
                                    aria-describedby="ageHelp">
                         </div>
 
@@ -110,7 +110,7 @@
                                 <span class="input-group-text" id="basic-addon4"><i class="fa fa-linkedin"
                                                                                     aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" th:field="*{age}" class="form-control" id="linkedinInput"
+                            <input type="text" th:field="*{linkedin}" class="form-control" id="linkedinInput"
                                    aria-describedby="ageHelp">
                         </div>
 
@@ -120,31 +120,22 @@
                 <div class="container">
                     <label class="formTitle">LANGUES</label>
                     <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Francais">Français
-                            </div>
-                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Anglais">Anglais
-                            </div>
-                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Espagnol">Espagnol
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Allemand">Allemand
-                            </div>
-                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Russe">Russe
-                            </div>
-                            <div class="col-sm"><input type="checkbox" name="Comp&eacute;tences" value="Chinois">Chinois
-                            </div>
-                        </div>
+                        <textarea class="form-control" th:field="*{language}" id="languageTextarea" rows="3"></textarea>
                     </div>
                 </div>
 
                 <div class="container">
                     <label style=" border-style: inset; display: block">COMPETENCES</label>
+                    <div class="form-group">
+                        <textarea class="form-control" th:field="*{skill}" id="skillTextarea" rows="3"></textarea>
+                    </div>
                 </div>
 
                 <div class="container">
                     <label style=" border-style: inset ; display: block">CENTRES D'INTERETS</label>
+                    <div class="form-group">
+                        <textarea class="form-control" th:field="*{hobby}" id="hobbyTextarea" rows="3"></textarea>
+                    </div>
                 </div>
 
 
@@ -190,7 +181,7 @@
                 <div class="container">
                     <label style=" border-style: inset; display: block">DESCRIPTION</label>
                     <div class="form-group">
-                        <textarea class="form-control" id="descriptionTextarea" rows="3"></textarea>
+                        <textarea class="form-control" th:field="*{presentation}" id="presentationTextarea" rows="3"></textarea>
                     </div>
                 </div>
 
@@ -199,31 +190,26 @@
                     <label style=" border-style: inset; display: block">FORMATIONS</label>
                     <div class="form-group">
                         <div class="container">
-                            <table id="myTable" class=" table order-list table-borderless" >
+                            <table id="myTable" class=" table order-list">
                                 <thead>
                                 <tr style="color: white">
-                                    <td>Entreprise</td>
-                                    <td>Poste</td>
+                                    <td>Nom</td>
                                     <td>Description</td>
                                     <td>Date</td>
-                                    <td></td>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td class="col-sm-3">
-                                        <input type="text" name="entreprise" class="form-control" />
+                                <tr th:each="formation : ${user.formation}">
+                                    <td class="col-sm-4">
+                                        <input type="text" th:field="*{formation.formationTitle}" th:value="${formation.formationTitle}" name="nom" class="form-control" />
+                                    </td>
+                                    <td class="col-sm-4">
+                                        <input type="text" th:field="*{formation.formationDescription}" th:value="${formation.formationDescription" name="description" class="form-control" />
                                     </td>
                                     <td class="col-sm-3">
-                                        <input type="mail" name="poste"  class="form-control"/>
+                                        <input type="text" th:field="*{formation.formationDate}" th:value="${formation.formationDate}" name="date" class="form-control" />
                                     </td>
-                                    <td class="col-sm-3">
-                                        <input type="text" name="description"  class="form-control"/>
-                                    </td>
-                                    <td class="col-sm-3">
-                                        <input type="text" name="date"  class="form-control"/>
-                                    </td>
-                                    <td class="col-sm-1"><a class="deleteRow"></a>
+                                    <td class="col-sm-2"><a class="deleteRow"></a>
 
                                     </td>
                                 </tr>
@@ -244,9 +230,6 @@
 
                 <div class="container">
                     <label style=" border-style: inset; display: block">EXPERIENCES</label>
-                    <div class="form-group">
-                        <textarea class="form-control" id="experiencesTextarea" rows="3"></textarea>
-                    </div>
                 </div>
 
             </div>
