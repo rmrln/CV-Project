@@ -5,14 +5,18 @@ import javax.persistence.*;
 @Entity(name = "formations")
 public class Formation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    // Nom de la formation
     @Column(name = "formation_title")
     private  String formationTitle;
+
+    // Description de la formation
     @Column(name = "formation_description")
     private  String formationDescription;
-    @Column(name = "formation_name")
-    private  String formationName;
+
+    // Date de la formation
     @Column(name = "formation_date")
     private  int formationDate;
 
@@ -36,14 +40,6 @@ public class Formation {
 
     public void setFormationDescription(String formationDescription) {
         this.formationDescription = formationDescription;
-    }
-
-    public String getFormationName() {
-        return formationName;
-    }
-
-    public void setFormationName(String formationName) {
-        this.formationName = formationName;
     }
 
     public int getFormationDate() {

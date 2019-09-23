@@ -24,7 +24,6 @@ create table formations
     PRIMARY KEY (id),
     formation_title TEXT not null,
     formation_description TEXT not null,
-    formation_name TEXT not null,
     formation_date int null,
     user_id bigint,
     CONSTRAINT FK_Formation FOREIGN KEY (user_id) REFERENCES users(id)
@@ -37,7 +36,6 @@ create table experiences
     experience_title TEXT not null,
     experience_description TEXT not null,
     experience_position TEXT not null,
-    experience_name TEXT not null,
     experience_date int null,
     user_id bigint,
     CONSTRAINT FK_Experience FOREIGN KEY (user_id) REFERENCES users(id)

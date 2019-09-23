@@ -6,17 +6,22 @@ import javax.persistence.*;
 @Entity(name = "experiences")
 public class Experience {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    // Nom entreprise
     @Column(name = "experience_title")
     private String experienceTitle;
+
+    // Description
     @Column(name = "experience_description")
     private String experienceDescription;
+
+    // Nom poste
     @Column(name = "experience_position")
     private String experiencePosition;
-    @Column(name = "experience_name")
-    private String experienceName;
+
+    // Date
     @Column(name = "experience_date")
     private int experienceDate;
 
@@ -55,14 +60,6 @@ public class Experience {
 
     public void setExperiencePosition(String experiencePosition) {
         this.experiencePosition = experiencePosition;
-    }
-
-    public String getExperienceName() {
-        return experienceName;
-    }
-
-    public void setExperienceName(String experienceName) {
-        this.experienceName = experienceName;
     }
 
     public int getExperienceDate() {
