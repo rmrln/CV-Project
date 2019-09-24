@@ -37,16 +37,26 @@ public class User {
     private  String hobby;
     @Column(name = "language")
     private  String language;
+    @Column(name = "formations")
+    private  String formations;
+    @Column(name = "experiences")
+    private  String experiences;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private  List<Formation> formations;
+    public String getFormations() {
+        return formations;
+    }
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Experience> experiences;
+    public void setFormations(String formations) {
+        this.formations = formations;
+    }
 
+    public String getExperiences() {
+        return experiences;
+    }
 
-
+    public void setExperiences(String experiences) {
+        this.experiences = experiences;
+    }
 
     public long getId() {
         return id;
@@ -160,29 +170,5 @@ public class User {
         this.language = language;
     }
 
-    public List<Formation> getFormation() {
-        return formations;
-    }
 
-    public void setFormation(List<Formation> formation) {
-        this.formations = formation;
-    }
-
-    public List<Experience> getExperience() {
-        return experiences;
-    }
-
-    public void setExperience(List<Experience> experience) {
-        this.experiences = experience;
-    }
-
-    public void addExperience(Experience experience) {
-        experiences.add(experience);
-        experience.setUser(this);
-    }
-
-    public void removeExperience(Experience experience) {
-        experiences.remove(experience);
-        experience.setUser(null);
-    }
 }
