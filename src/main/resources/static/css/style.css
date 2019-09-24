@@ -7,6 +7,33 @@
 h1 {
     color: aquamarine;
 }
+
+#presentation{
+    margin-left: 15px;
+    font-style: italic;
+}
+#cv-borderleft{
+    border-bottom: solid;
+    border-top: solid;
+    border-left: solid;
+}
+#cv-borderright{
+    border-bottom: solid;
+    border-top: solid;
+    border-right: solid;
+}
+.cvleft{
+    padding-top: 10px;
+    padding-bottom: 5px;
+
+}
+
+.description{
+    color: gray;
+    font-style: italic;
+padding-left: 15px;
+}
+
 img {
     max-width: 180px;
 
@@ -29,8 +56,15 @@ img {
     display: block
 }
 
-.formBlock{
 
+.cv-part{
+    margin-top: 40px;
+}
+
+#name {
+    font-size: 2em;
+    margin-left: 300px;
+    margin-top: 110px;
 }
 
 .navTitle{
@@ -58,6 +92,20 @@ header.headPers{
     font-family: 'Pacifico', cursive;
     color: #1d2124;
 }
+.smalmarg{
+    padding-left: 10px;
+}
+
+#picture {
+    margin-top: 40px;
+    margin-left: 100px;
+
+}
+
+#left-cv-zone{
+    margin-top:40px;
+    margin-left: 25px;
+}
 
 .newTitle{
     font-size: 3.5em;
@@ -66,6 +114,10 @@ header.headPers{
     margin-left: auto;
     margin-right: auto;
     width: 5em
+}
+#cv-page{
+    margin-top:60px;
+    margin-left: 110px;
 }
 
 .subTitle{

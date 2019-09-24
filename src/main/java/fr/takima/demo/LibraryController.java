@@ -144,9 +144,12 @@ public class LibraryController {
     }
 
     @GetMapping("/consult/{id}")
-    public RedirectView consultCV(@ModelAttribute User user, RedirectAttributes attrs) {
-        userDAO.findById(user.getId());
-        return new RedirectView("consult");
+    public String consultCV(Model m,@PathVariable Long id, User user) {
+        Optional str = userDAO.findById(id);
+        if(str.isPresent()){
+            m.addAttribute("user",userDAO.findById(id).get());
+        }
+        return "consult";
     }
 
     @GetMapping("/modif/{id}")
