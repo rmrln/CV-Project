@@ -1,6 +1,8 @@
 package fr.takima.demo;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -62,7 +64,8 @@ public class LibraryController {
         m.addAttribute("user", new User());
         return "new";
     }
-    @PostMapping("/modif")
+
+    @RequestMapping()
     public RedirectView modifNewUser(@ModelAttribute User user, RedirectAttributes attrs,@RequestParam("file") MultipartFile file) {
         try {
 
@@ -81,10 +84,12 @@ public class LibraryController {
         }
         attrs.addFlashAttribute("message", "Utilisateur ajouté avec succès"+UPLOADED_FOLDER);
         System.out.println(UPLOADED_FOLDER + file.getOriginalFilename());
-        user.setPicture("test");
+        String pathModif = "uploads/";
+        user.setPicture(pathModif + file.getOriginalFilename());
         userDAO.save(user);
         return new RedirectView("/");
     }
+
 
     @PostMapping("/new")
     public RedirectView createNewUser(@ModelAttribute User user, RedirectAttributes attrs,@RequestParam("file") MultipartFile file) {
@@ -105,7 +110,8 @@ public class LibraryController {
         }
         attrs.addFlashAttribute("message", "Utilisateur ajouté avec succès"+UPLOADED_FOLDER);
         System.out.println(UPLOADED_FOLDER + file.getOriginalFilename());
-        user.setPicture(file.getOriginalFilename());
+        String pathModif = "../../../../uploads/";
+        user.setPicture(pathModif + file.getOriginalFilename());
         userDAO.save(user);
         return new RedirectView("/");
     }
@@ -147,11 +153,15 @@ public class LibraryController {
     }
 
     @GetMapping("/modif/{id}")
-    public String viewCV(Model m,@PathVariable Long id, User user){
-        Optional str = userDAO.findById(id);
-        if(str.isPresent()){
-            m.addAttribute("user",userDAO.findById(id).get());
-        }
+    public String viewCV(Model m,@PathVariable Long id){
+        m.addAttribute("photo", userDAO.findById(id).get().getPicture());
+        m.addAttribute("connectedUser",userDAO.findById(id));
         return "modif";
+    }
+
+    @PostMapping("/modif/{id}")
+    public RedirectView updateUser(@ModelAttribute User connectedUser) {
+        userDAO.save(connectedUser);
+        return new RedirectView("/modif/"+connectedUser.getId());
     }
 }
