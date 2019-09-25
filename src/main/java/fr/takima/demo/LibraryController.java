@@ -113,29 +113,6 @@ public class LibraryController {
         userDAO.save(user);
         return new RedirectView("/");
     }
-   /* @PostMapping("/new")
-    public RedirectView createNewUser(@ModelAttribute User user, RedirectAttributes attrs,@RequestParam("file") MultipartFile file) {
-        try {
-
-            // Get the file and save it somewhere
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-            Files.write(path, bytes);
-
-            attrs.addFlashAttribute("msg",
-                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            attrs.addFlashAttribute("msg",
-                    "Bad" + file.getOriginalFilename() + "'");
-        }
-        attrs.addFlashAttribute("message", "Utilisateur ajouté avec succès"+UPLOADED_FOLDER);
-        System.out.println(UPLOADED_FOLDER + file.getOriginalFilename());
-        user.setPicture("../../resources/static/uploads/"+file.getOriginalFilename());
-        userDAO.save(user);
-        return new RedirectView("/");
-    }*/
 
     @GetMapping("/delete/{id}")
     public RedirectView deleteUser(@ModelAttribute User user, RedirectAttributes attrs) {
@@ -156,13 +133,35 @@ public class LibraryController {
     @GetMapping("/modif/{id}")
     public String viewCV(Model m,@PathVariable Long id){
         m.addAttribute("photo", userDAO.findById(id).get().getPicture());
-        m.addAttribute("connectedUser",userDAO.findById(id));
+        m.addAttribute("user",userDAO.findById(id));
         return "modif";
     }
 
-    @PostMapping("/modif/{id}")
-    public RedirectView updateUser(@ModelAttribute User connectedUser) {
-        userDAO.save(connectedUser);
-        return new RedirectView("/modif/"+connectedUser.getId());
+    @PostMapping("/modif")
+    public RedirectView updateUser(@ModelAttribute User user,@RequestParam("file") MultipartFile file, RedirectAttributes attrs) {
+
+        try {
+
+            // Get the file and save it somewhere
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+            Files.write(path, bytes);
+
+            attrs.addFlashAttribute("msg",
+                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            attrs.addFlashAttribute("msg",
+                    "Bad" + file.getOriginalFilename() + "'");
+        }
+        attrs.addFlashAttribute("message", "Utilisateur ajouté avec succès"+UPLOADED_FOLDER);
+        System.out.println(UPLOADED_FOLDER + file.getOriginalFilename());
+        String pathModif = "../../../../uploads/";
+        String photo = pathModif + file.getOriginalFilename();
+        user.setPicture(photo);
+        
+        userDAO.save(user);
+        return new RedirectView("/modif/"+user.getId());
     }
 }

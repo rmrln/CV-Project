@@ -45,7 +45,7 @@
 <div class="container">
     <h2 class="newTitle">La modif</h2>
 
-    <form method="post" th:action="@{'/modif/'+${id}}" th:object="${connectedUser}" enctype="multipart/form-data">
+    <form method="post" th:action="@{'/modif'}" th:object="${user}" enctype="multipart/form-data">
 
         <div class="row">
 
@@ -59,17 +59,17 @@
         <div class="row">
             <div class="col py-3 px-lg-5">
                 <div class="mb-4" align="center">
-                    
+
                     <div class="d-flex justify-content-center">
                         <div class="row">
                             <div class="col-sm">
-                                <img id="blah" class="roundPhotoId" th:src="@{${photo}}" alt="your image"/>
+                                <img class="roundPhotoId" id="picture"  th:src="@{${photo}}" alt="your image"/>
 
                             </div>
                             <div class="col-sm d-flex align-items-center">
                                 <div class="upload-btn-wrapper">
                                     <button class="btn">Ajouter une photo</button>
-                                    <input type="file" name="file" onchange="readURL(this);" required/>
+                                    <input type="file" name="file" onchange="readURL(this);" />
                                 </div>
                             </div>
                         </div>
