@@ -118,7 +118,7 @@ public class LibraryController {
     public RedirectView deleteUser(@ModelAttribute User user, RedirectAttributes attrs) {
         attrs.addFlashAttribute("message", "CV supprimé avec succès");
         userDAO.deleteById(user.getId());
-        return new RedirectView("/");
+        return new RedirectView("/list");
     }
 
     @GetMapping("/consult/{id}")
@@ -160,7 +160,7 @@ public class LibraryController {
         String pathModif = "../../../../uploads/";
         String photo = pathModif + file.getOriginalFilename();
         user.setPicture(photo);
-        
+
         userDAO.save(user);
         return new RedirectView("/modif/"+user.getId());
     }
