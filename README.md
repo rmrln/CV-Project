@@ -59,6 +59,8 @@ Celui-ci est très simple d'utilisation :
 Lorsque vous arrivez sur la page d'accueil vous pouvez accéder à :
 -	la page de création de votre CV ton Let's Go où via la barre de navigation en haut de la page « Création » 
 -	la page liste de CV qui vous permet de retrouver votre CV et ensuite de la modifier/consulter/supprimer 
+
 Pour créer votre CV rien de plus simple vous complétez les champs avec vos informations et pour l'enregistrer où vous n'avez qu'à cliquer sur le bouton « Ajouter ».
+
 Pour consulter/modifier/supprimer votre CV cliquez sur « Liste CV » dans la barre de navigation une fois sur la page, retrouvez votre CV et cliquez sur le bouton de l'action que vous voulez effectuer.
 
