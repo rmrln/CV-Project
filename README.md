@@ -33,6 +33,8 @@ docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=def
 
 5. Tous les scripts sql contenus dans le dossier initdb seront exécutés automatiquement lors du premier chargement de la DB.
 Si les scripts ne se sont pas éxécutés automatiquement il faudra les éxécuter dans IntelliJ IDEA en faisant un clic droit puis "run" sur chacun des 2 scripts. 
+![scripts](https://user-images.githubusercontent.com/55136814/65621259-afa5b480-dfc3-11e9-866f-11a3c61bdd65.jpg)
+
 
 
 
@@ -47,3 +49,16 @@ https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgc
 
 
 3. Ouvrez votre navigateur et saisissez l'adresse 'localhost:8080', la page d'accueil de l'application va alors s'afficher
+
+
+
+## Guide utilisateur 
+
+Bienvenue sur notre site web CV Creator !
+Celui-ci est très simple d'utilisation :
+Lorsque vous arrivez sur la page d'accueil vous pouvez accéder à :
+-	la page de création de votre CV ton Let's Go où via la barre de navigation en haut de la page « Création » 
+-	la page liste de CV qui vous permet de retrouver votre CV et ensuite de la modifier/consulter/supprimer 
+Pour créer votre CV rien de plus simple vous complétez les champs avec vos informations et pour l'enregistrer où vous n'avez qu'à cliquer sur le bouton « Ajouter ».
+Pour consulter/modifier/supprimer votre CV cliquez sur « Liste CV » dans la barre de navigation une fois sur la page, retrouvez votre CV et cliquez sur le bouton de l'action que vous voulez effectuer.
+
