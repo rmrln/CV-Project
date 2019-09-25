@@ -26,7 +26,7 @@ public class LibraryController {
 
     private final UserDAO userDAO;
     //Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "../CV-Project/src/main/resources/static/uploads/";
+    private static String UPLOADED_FOLDER = "../CV-Project/uploads/";
 
     public LibraryController(UserDAO userDAO) {
         this.userDAO = userDAO;
@@ -108,7 +108,8 @@ public class LibraryController {
         attrs.addFlashAttribute("message", "Utilisateur ajouté avec succès"+UPLOADED_FOLDER);
         System.out.println(UPLOADED_FOLDER + file.getOriginalFilename());
         String pathModif = "../../../../uploads/";
-        user.setPicture(pathModif + file.getOriginalFilename());
+        String photo = pathModif + file.getOriginalFilename();
+        user.setPicture(photo);
         userDAO.save(user);
         return new RedirectView("/");
     }

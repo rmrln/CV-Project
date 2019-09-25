@@ -18,7 +18,15 @@
 </head>
 
 <script type="text/javascript" th:src="@{/js/readURL.js}"></script>
-
+<script>
+    function maxL(){
+        var nbre= document.getElementById("phoneNumber").value;
+        var lgh= nbre.length;
+        if (lgh >600) {
+            alert('Votre texte ne doit pas dépasser 600 caractères!');
+        }
+    }
+</script>
 
 <body class="bodyNew">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,6 +40,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/index">Home </a>
             </li>
+
             <li class="nav-item active">
                 <a class="nav-link" href="/new">Création <span class="sr-only">(current)</span></a>
             </li>
@@ -85,7 +94,8 @@
                                                                                     aria-hidden="true"></i></span>
                             </div>
                             <input type="number" th:field="*{phoneNumber}" class="form-control" id="phoneNumber"
-                                   aria-describedby="firstNameHelp" required>
+                                   aria-describedby="firstNameHelp"
+                                   onkeyup="maxL()" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -134,18 +144,13 @@
                 </div>
 
                 <div class="container">
-                    <label style=" border-style: inset; display: block">COMPETENCES</label>
+                    <label class="formTitle">COMPETENCES</label>
                     <div class="form-group">
                         <textarea class="form-control" th:field="*{skill}" id="skill" rows="3" required></textarea>
                     </div>
                 </div>
 
-                <div class="container">
-                    <label style=" border-style: inset ; display: block">CENTRES D'INTERETS</label>
-                    <div class="form-group">
-                        <textarea class="form-control" th:field="*{hobby}" id="hobby" rows="3" required></textarea>
-                    </div>
-                </div>
+
 
 
             </div>
@@ -188,7 +193,7 @@
 
                 </div>
                 <div class="container">
-                    <label style=" border-style: inset; display: block">DESCRIPTION</label>
+                    <label class="formTitle">DESCRIPTION</label>
                     <div class="form-group">
                         <textarea class="form-control" th:field="*{presentation}" id="presentation" rows="3" required></textarea>
                     </div>
@@ -196,16 +201,23 @@
 
 
                 <div class="container">
-                    <label style=" border-style: inset; display: block">FORMATIONS</label>
+                    <label class="formTitle">FORMATIONS</label>
                     <div class="form-group">
                         <textarea class="form-control" th:field="*{formations}" id="formations" rows="3" required></textarea>
                     </div>
                 </div>
 
                 <div class="container">
-                    <label style=" border-style: inset; display: block">EXPERIENCES</label>
+                    <label class="formTitle">EXPERIENCES</label>
                     <div class="form-group">
                         <textarea class="form-control" th:field="*{experiences}" id="experiences" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <label class="formTitle">CENTRES D'INTERETS</label>
+                    <div class="form-group">
+                        <textarea class="form-control" th:field="*{hobby}" id="hobby" rows="3" required></textarea>
                     </div>
                 </div>
 
